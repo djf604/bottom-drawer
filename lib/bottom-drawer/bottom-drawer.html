@@ -2,7 +2,13 @@
   <template>
     <link href="bottom-drawer.css" rel="stylesheet">
 
-    <div-resizer on-new-height='{{onNewHeight}}'></div-resizer>
+    <div id='height'>
+      <div-resizer on-new-height='{{onNewHeight}}'></div-resizer>
+
+      <div id='content'>
+        <content></content>
+      </div>
+    </div>
   </template>
 
   <script type="text/javascript" src='bottom-drawer.js'></script>
