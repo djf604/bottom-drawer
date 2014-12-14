@@ -24,7 +24,7 @@
     document.querySelector('bottom-drawer').open(350);
   }
 
-  document.querySelector('#toggle').onclick = function() { document.querySelector('bottom-drawer').toggle() };
+  document.querySelector('#toggle').onclick = function(e) { e.preventDefault(); document.querySelector('bottom-drawer').toggle(); };
 
   setTimeout(fn,1);
 </script>
