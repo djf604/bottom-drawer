@@ -1,8 +1,11 @@
 <polymer-element name="div-resizer" on-mousedown='{{onMousedown}}' on-mouseup='{{onMouseup}}'>
   <template>
     <link href="div-resizer.css" rel="stylesheet">
-    <div class='grippie'>
-      <core-icon icon="menu"></core-icon>
+    <div class='grippie' layout horizontal>
+      <core-icon flex icon="menu"></core-icon>
+      <core-icon class='action' on-tap="{{maximize}}" icon="hardware:keyboard-arrow-up"></core-icon>
+      <core-icon class='action' on-tap="{{minimize}}" icon="hardware:keyboard-arrow-down"></core-icon>
+      <core-icon class='action' on-tap="{{close}}" icon="close"></core-icon>
     </div>
   </template>
   <script type="text/javascript" src='div-resizer.js'></script>

@@ -1,32 +1,46 @@
 Polymer 'bottom-drawer',
-  observe:
-    opened: 'openedChanged'
+
+  heightPadding: 50
 
   openedChanged: ->
     #triggers css reflow
     @offsetHeight
+
     h = @$.height
     h.classList.remove('notransition')
 
-    if @opened
-      h.style.height = @height + 'px'
-    else
-      h.style.height = '0'
+    @async ->
+      if @opened
+        if @height
+          h.style.height = @height + 'px'
+        else
+          h.style.height = @scrollHeight + @heightPadding + 'px'
+      else
+        h.style.height = '0px'
 
-  toggle: ->
-    @opened = !@opened
+  toggle: -> @opened = !@opened
 
   open: (height) ->
-    @height =  if height then height else (@getContentHeight() + 50)
+    @height = height
     @opened = true
 
-  getContentHeight: ->
-    @$.content.offsetHeight
+  minimize: ->
+    @$.height.style.height = @$.resizer.offsetHeight + 'px'
 
-  close: ->
+  maximize: ->
+    @$.height.style.height = window.innerHeight + 'px'
+
+  getContentHeight: ->
+    @$.content.scrollHeight
+
+  close: -> @opened = false
+
+  cancel: ->
     @opened = false
+    @$.height.style.height = '0px'
 
   onNewHeight: (e,d,s) ->
+    @opened = true
     h = @$.height
     h.classList.add('notransition')
     h.style.height = d + 'px'

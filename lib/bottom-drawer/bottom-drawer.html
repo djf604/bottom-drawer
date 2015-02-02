@@ -1,9 +1,13 @@
-<polymer-element name="bottom-drawer">
+<polymer-element class='transition' name="bottom-drawer">
   <template>
     <link href="bottom-drawer.css" rel="stylesheet">
 
     <div id='height'>
-      <div-resizer on-new-height='{{onNewHeight}}'></div-resizer>
+      <div-resizer id='resizer'
+        on-close-drawer='{{cancel}}'
+        on-max-drawer='{{maximize}}'
+        on-min-drawer='{{minimize}}'
+        on-new-height='{{onNewHeight}}'></div-resizer>
 
       <div id='content'>
         <content></content>

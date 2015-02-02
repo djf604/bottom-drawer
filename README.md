@@ -12,6 +12,8 @@ Calling `open(300)` will open the drawer with a height of 300px; if height is no
 
 Call `close()` to close it.
 
+You can adjust the extra height added to the drawer when it opens via the heightPadding variable
+
 Need to set up a component page for this...
 
 To run locally:

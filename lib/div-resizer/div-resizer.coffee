@@ -22,6 +22,12 @@ Polymer 'div-resizer',
 
   mousePosition: (e) ->  e.clientY + document.documentElement.scrollTop
 
+  close: (e,d,s) -> @fire('close-drawer')
+
+  maximize: (e,d,s) -> @fire('max-drawer')
+
+  minimize: (e,d,s) -> @fire('min-drawer')
+
   ready: ->
     @onMouseMove = (e,d,s) =>
       console.log 'onMouseMove'
@@ -30,8 +36,6 @@ Polymer 'div-resizer',
       @fire('new-height', size)
 
     @endDrag = =>
-      console.log 'endDrag'
-
       height = @parent.clientHeight
       document.removeEventListener 'mousemove', @onMouseMove
       document.removeEventListener 'mouseup', @endDrag

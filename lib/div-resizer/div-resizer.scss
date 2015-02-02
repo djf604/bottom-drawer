@@ -1,8 +1,27 @@
+:host {
+  display: block;
+}
+
 .grippie {
   cursor: row-resize;
-  text-align: center;
+  text-align:center
 }
 
 core-icon {
   fill: black !important;
+}
+
+.action {
+  height:30px;
+  width:30px;
+
+  &:nth-child(2) {
+    margin-right: 10px;
+  }
+
+  &:nth-child(3) {
+    margin-right: 5px;
+  }
+
+  cursor: pointer;
 }
